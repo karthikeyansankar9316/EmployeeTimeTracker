@@ -1,0 +1,33 @@
+-- Create database if not exists
+CREATE DATABASE IF NOT EXISTS employee_task_tracking;
+
+-- Use the created database
+USE employee_task_tracking;
+
+-- Table structure for table 'users'
+-- Table structure for table 'users'
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    employee_id VARCHAR(10) UNIQUE
+);
+
+-- Insert initial admin user
+INSERT INTO users (name, role, username, password, employee_id)
+VALUES ('Raj', 'Admin', 'Raj', 'admin@123', 'EMP1000001');
+
+-- Table structure for table 'tasks' without user_id foreign key constraint
+CREATE TABLE IF NOT EXISTS tasks (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_date DATE NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    description TEXT,
+    project_name VARCHAR(50),
+    employee_id VARCHAR(10),
+    CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES users(employee_id)
+);

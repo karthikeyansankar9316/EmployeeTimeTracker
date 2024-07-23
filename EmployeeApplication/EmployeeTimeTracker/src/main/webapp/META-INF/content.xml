@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.eclipse.org/che4z/1.0">
+	<content>
+		<resource path="src/main/java/com/bank/model" />
+		<resource path="src/main/java/com/bank/servlet" />
+		<resource path="src/main/java/com/bank/util" />
+		<resource path="src/main/webapp" />
+		<resource path="src/main/webapp/WEB-INF" />
+		<resource path="lib" />
+	</content>
+</project>
